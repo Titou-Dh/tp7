@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "bibliotheque-api-tp7",
+		"name": "Bibliothèque API - MongoDB TP7",
+		"description": "Collection Postman pour tester l'API REST de gestion de bibliothèque",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Livres",
+			"item": [
+				{
+					"name": "Ajouter un livre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titre\": \"Le Petit Prince\",\n  \"auteur\": \"Antoine de Saint-Exupéry\",\n  \"date_publication\": \"1943-04-06\",\n  \"genre\": \"Conte\",\n  \"disponible\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/livres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres"
+							]
+						},
+						"description": "Ajouter un nouveau livre à la bibliothèque"
+					},
+					"response": []
+				},
+				{
+					"name": "Lister tous les livres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/livres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres"
+							]
+						},
+						"description": "Récupérer la liste de tous les livres"
+					},
+					"response": []
+				},
+				{
+					"name": "Récupérer un livre par ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/livres/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID du livre (ObjectId MongoDB)"
+								}
+							]
+						},
+						"description": "Récupérer un livre spécifique par son ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Modifier un livre",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titre\": \"Le Petit Prince (Édition illustrée)\",\n  \"disponible\": false\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/livres/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID du livre à modifier"
+								}
+							]
+						},
+						"description": "Mettre à jour les informations d'un livre"
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer un livre",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/livres/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID du livre à supprimer"
+								}
+							]
+						},
+						"description": "Supprimer un livre de la bibliothèque"
+					},
+					"response": []
+				}
+			],
+			"description": "Opérations CRUD sur les livres"
+		},
+		{
+			"name": "Exemples de livres",
+			"item": [
+				{
+					"name": "Exemple 1 - L'Étranger",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titre\": \"L'Étranger\",\n  \"auteur\": \"Albert Camus\",\n  \"date_publication\": \"1942-06-01\",\n  \"genre\": \"Roman\",\n  \"disponible\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/livres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres"
+							]
+						},
+						"description": "Ajouter le livre L'Étranger d'Albert Camus"
+					},
+					"response": []
+				},
+				{
+					"name": "Exemple 2 - Harry Potter",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titre\": \"Harry Potter à l'école des sorciers\",\n  \"auteur\": \"J.K. Rowling\",\n  \"date_publication\": \"1997-06-26\",\n  \"genre\": \"Fantasy\",\n  \"disponible\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/livres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres"
+							]
+						},
+						"description": "Ajouter le premier tome de Harry Potter"
+					},
+					"response": []
+				},
+				{
+					"name": "Exemple 3 - 1984",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titre\": \"1984\",\n  \"auteur\": \"George Orwell\",\n  \"date_publication\": \"1949-06-08\",\n  \"genre\": \"Science-fiction\",\n  \"disponible\": false\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/livres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres"
+							]
+						},
+						"description": "Ajouter le livre 1984 de George Orwell (non disponible)"
+					},
+					"response": []
+				},
+				{
+					"name": "Exemple 4 - Le Seigneur des Anneaux",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titre\": \"Le Seigneur des Anneaux\",\n  \"auteur\": \"J.R.R. Tolkien\",\n  \"date_publication\": \"1954-07-29\",\n  \"genre\": \"Fantasy\",\n  \"disponible\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/livres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"livres"
+							]
+						},
+						"description": "Ajouter Le Seigneur des Anneaux"
+					},
+					"response": []
+				}
+			],
+			"description": "Exemples de requêtes pour ajouter différents livres"
+		},
+		{
+			"name": "Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Endpoint racine pour voir la liste des endpoints disponibles"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
+
